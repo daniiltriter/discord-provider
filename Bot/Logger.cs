@@ -1,6 +1,6 @@
 ﻿using Discord;
 
-namespace Bot;
+namespace DiscordProvider.Bot;
 
 public class Logger
 {

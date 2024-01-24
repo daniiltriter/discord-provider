@@ -1,33 +1,12 @@
-﻿using System.Net.Sockets;
-using Bot;
-using Connection;
-using Discord;
-using Discord.WebSocket;
+﻿using DiscordProvider.Bot;
 
-// using var tcpClient = new TcpClient();
-// tcpClient.Connect("127.0.0.1", 8888);
-//
-// var message = "Hello world";
-
-using var provider = new Provider();
-provider.OnMessage += HandleMessage;
-await provider.StartAsync(8888);
-
-
-static void HandleMessage(string message)
+public class Program
 {
-    Console.WriteLine(message);
+    public static async Task Main(string[] args)
+    {
+        var bot = new BotLauncher();
+        await bot.Launch(args[0], ulong.Parse(args[1]));
+    }
 }
-
-// var token = args[0];
-// var client = new DiscordSocketClient();
-// var logger = new Logger();
-//
-// client.Log += logger.Log;
-//
-// await client.LoginAsync(TokenType.Bot, token);
-// await client.StartAsync();
-//
-// await Task.Delay(-1);
 
 
