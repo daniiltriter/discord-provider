@@ -4,8 +4,14 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
+        Console.WriteLine("Input token: ");
+        var token = Console.ReadLine();
+        
+        Console.WriteLine("Input channel Id");
+        var channelId = ulong.Parse(Console.ReadLine());
+        
         var bot = new BotLauncher();
-        await bot.Launch(args[0], ulong.Parse(args[1]));
+        await bot.Launch(token, channelId);
     }
 }
 
